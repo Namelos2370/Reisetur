@@ -1,0 +1,12 @@
+{
+  "fr": {
+    "application_received": "Bonjour {first_name}, nous avons bien re\u00e7u votre candidature chez Reiset\u00fcr.",
+    "status_update": "Bonjour {first_name}, le statut de votre dossier est maintenant: {status}.",
+    "appointment_reminder": "Rappel: votre rendez-vous est pr\u00e9vu le {date}."
+  },
+  "de": {
+    "application_received": "Hallo {first_name}, Ihre Bewerbung bei Reiset\u00fcr ist eingegangen.",
+    "status_update": "Hallo {first_name}, der Status Ihres Antrags ist jetzt: {status}.",
+    "appointment_reminder": "Erinnerung: Ihr Termin ist am {date}."
+  }
+}

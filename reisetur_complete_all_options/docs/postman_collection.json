@@ -1,0 +1,162 @@
+{
+  "info": {
+    "name": "Reisetur API",
+    "_postman_id": "a1b2c3d4-reisetur",
+    "description": "Collection for Reiset\u00fcr API including JWT flows",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Obtain JWT Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\": \"admin\", \"password\": \"pass1234\"}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/token/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "token",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Refresh JWT Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"refresh\": \"<refresh_token>\"}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/token/refresh/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "token",
+            "refresh",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create candidate (public)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "first_name",
+              "value": "Jean",
+              "type": "text"
+            },
+            {
+              "key": "last_name",
+              "value": "Dupont",
+              "type": "text"
+            },
+            {
+              "key": "email",
+              "value": "jean@example.com",
+              "type": "text"
+            },
+            {
+              "key": "objective",
+              "value": "etudes",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/api/candidates/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "candidates",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "Admin list candidates (use JWT)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/admin/candidates/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "candidates",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "GDPR Export (CSV)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/gdpr/export/{{token}}/?format=csv",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "gdpr",
+            "export",
+            "{{token}}"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    }
+  ]
+}

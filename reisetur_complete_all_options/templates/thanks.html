@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="alert alert-success">
+  Merci {{ candidate.first_name }}! Votre candidature a été reçue. Nous vous contacterons bientôt.
+</div>
+{% if access_token %}
+<div class="card mt-3">
+  <div class="card-body">
+    <h5>Accès à votre suivi</h5>
+    <p>Conservez ce code d'accès pour suivre votre dossier depuis le tableau de bord :</p>
+    <pre>{{ access_token }}</pre>
+    <p>Utilisez-le dans l'application mobile ou le tableau de bord candidat pour voir l'état de votre dossier.</p>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
